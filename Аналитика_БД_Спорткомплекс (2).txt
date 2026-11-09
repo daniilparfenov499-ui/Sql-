@@ -1,0 +1,636 @@
+ИНФОРМАЦИОННАЯ СИСТЕМА "СПОРТКОМПЛЕКС"
+
+Предмет: Технология разработки и защиты баз данных
+Тип работы: курсовой проект
+Дата: 2026 г.
+
+
+РАЗДЕЛ 1. АНАЛИТИКА ИНФОРМАЦИОННОЙ СИСТЕМЫ
+
+1.1 Описание предметной области
+
+Спорткомплекс - учреждение физической культуры и спорта, предоставляющее
+услуги по организации тренировок, соревнований и других спортивных
+мероприятий по различным видам спорта.
+
+Основные направления деятельности:
+- проведение групповых тренировок и персональных занятий;
+- организация и проведение соревнований различных уровней;
+- управление спортивными командами;
+- мониторинг физической подготовки спортсменов;
+- управление спортивной инфраструктурой.
+
+
+1.2 Основные функции системы
+
+1. Управление спортсменами
+   - регистрация новых спортсменов;
+   - ведение личных данных и контактной информации;
+   - история травм и заболеваний;
+   - мониторинг физических показателей (рост, вес);
+   - контроль статуса (активный, травма, отстранен, неактивный).
+
+2. Управление командами
+   - создание команд по видам спорта;
+   - формирование состава игроков;
+   - назначение главного тренера;
+   - история членства в команде;
+   - ведение статуса команды.
+
+3. Управление тренировками
+   - планирование тренировочных сессий;
+   - расписание занятий;
+   - регистрация посещаемости;
+   - типы тренировок (техника, физическая подготовка, тактика, общая);
+   - учет затраченного времени.
+
+4. Управление соревнованиями и матчами
+   - создание соревнований различных уровней;
+   - регистрация участников и команд;
+   - планирование матчей;
+   - ввод результатов матчей;
+   - расчет рейтингов и турнирных таблиц.
+
+5. Управление абонементами и подписками
+   - создание типов абонементов;
+   - оформление подписок спортсменов;
+   - отслеживание сроков действия;
+   - уведомления об истечении;
+   - архив истории подписок.
+
+6. Финансовое управление
+   - учет платежей и операций;
+   - поддержка методов оплаты (наличные, карта, перевод);
+   - генерация счетов и квитанций;
+   - отчеты по доходам.
+
+7. Управление ресурсами
+   - реестр спортивных сооружений;
+   - расписание использования объектов;
+   - управление информацией о тренерах и персонале;
+   - отслеживание квалификации.
+
+8. Аналитика и отчетность
+   - статистика по видам спорта;
+   - рейтинги спортсменов и команд;
+   - анализ результатов соревнований;
+   - отчеты по эффективности тренировок.
+
+
+1.3 Проблемы, решаемые автоматизацией
+
+- ручной учет данных спортсменов и потеря информации;
+- сложность отслеживания истории травм и восстановления;
+- ошибки при составлении расписания тренировок;
+- невозможность быстрого поиска информации о спортсменах;
+- сложность расчета результатов соревнований;
+- потеря данных о выполнении физических нормативов;
+- ошибки в учете платежей и доходов;
+- отсутствие аналитики для управления комплексом.
+
+
+1.4 Ключевые показатели (KPI)
+
+По спортсменам:
+- всего спортсменов: 8;
+- активных: 8;
+- мужчин / женщин: 4 / 4.
+
+По командам:
+- всего команд: 5 (все активные);
+- видов спорта в командах: 3 (баскетбол, волейбол, футбол);
+- в составах команд числится 7 спортсменов (в среднем 1,4 на команду).
+
+По видам спорта:
+- всего видов спорта: 6 (все активные);
+- командных: 3, индивидуальных: 2, парных: 1.
+
+По сооружениям:
+- всего объектов: 6 (2 зала, 1 бассейн, 1 корт, 1 стадион, 1 поле);
+- общая вместимость: 6600 человек;
+- общая площадь: 21 650 кв. м.
+
+По тренерам:
+- всего тренеров: 6;
+- мастеров спорта: 5, кандидатов в мастера: 1;
+- средняя зарплата: 78 333 руб.
+
+По соревнованиям:
+- всего соревнований: 4;
+- городских: 2, районных: 2;
+- все находятся в статусе "планирование".
+
+По абонементам:
+- типов абонементов: 5;
+- активных подписок: 5;
+- цены: от 1000 до 4500 руб., средняя - 2200 руб.
+
+По финансам:
+- всего платежей: 6 (все успешные);
+- общая сумма доходов: 16 000 руб.;
+- средний платеж: 2667 руб.
+
+По персоналу:
+- всего сотрудников: 4 (все активные);
+- администраторов: 2, врач: 1, массажист: 1.
+
+
+1.5 Требования к системе
+
+Функциональные требования:
+- полная поддержка CRUD-операций для всех сущностей;
+- быстрый поиск спортсменов по ФИО, телефону, email;
+- просмотр расписания тренировок;
+- ввод и расчет результатов соревнований;
+- управление подписками с уведомлениями об истечении;
+- учет травм и истории восстановления;
+- расчет рейтингов спортсменов и команд;
+- отчеты по доходам;
+- мониторинг посещаемости тренировок.
+
+Нефункциональные требования:
+- поиск спортсмена - менее 100 мс;
+- получение расписания - менее 200 мс;
+- обработка платежа - менее 50 мс;
+- доступность системы - не менее 99,5%;
+- поддержка 1000+ спортсменов и 100+ одновременных пользователей;
+- рост базы до 1 ГБ без потери производительности.
+
+Требования к безопасности:
+- контроль доступа по ролям (администратор, тренер, спортсмен);
+- шифрование паролей;
+- аудит критических операций (изменение результатов, платежи);
+- ежедневное резервное копирование;
+- возможность удаления персональных данных по запросу;
+- журналирование попыток доступа.
+
+
+1.6 Статистика структуры базы данных
+
+- таблиц: 16 (не считая служебной sqlite_sequence);
+- столбцов: 148;
+- первичных ключей: 16;
+- внешних ключей: 30;
+- индексов: 25;
+- уникальных ограничений: 9;
+- CHECK-ограничений: 23;
+- представлений: 4;
+- записей: 77.
+
+
+РАЗДЕЛ 2. КОНЦЕПТУАЛЬНАЯ МОДЕЛЬ (ER-ДИАГРАММА)
+
+2.1 Сущности и связи
+
+ATHLETES (спортсмены, 8 записей)
+   1:N - TEAM_ATHLETES      (состав команд)
+   1:N - SUBSCRIPTIONS      (подписки)
+   1:N - INJURIES           (травмы)
+   1:N - ATHLETE_PERFORMANCES (результаты)
+   1:N - PAYMENTS           (платежи)
+
+SPORTS (виды спорта, 6 записей)
+   1:N - TEAMS              (команды)
+   1:N - FACILITIES         (сооружения)
+   1:N - COMPETITIONS       (соревнования)
+   1:N - TRAINING_SESSIONS  (тренировки)
+   1:N - MEMBERSHIPS        (абонементы)
+
+FACILITIES (сооружения, 6 записей)
+   N:1 - SPORTS
+   1:N - TRAINING_SESSIONS
+   1:N - MATCHES
+   1:N - EVENTS
+
+COACHES (тренеры, 6 записей)
+   1:N - TEAMS              (как главный тренер)
+   1:N - TRAINING_SESSIONS
+
+TEAMS (команды, 5 записей)
+   N:1 - SPORTS
+   N:1 - COACHES
+   1:N - TEAM_ATHLETES
+   1:N - MATCHES            (как team1 и team2)
+   1:N - PAYMENTS
+
+TEAM_ATHLETES (составы, 7 записей)
+   N:1 - TEAMS
+   N:1 - ATHLETES
+
+MEMBERSHIPS (абонементы, 5 записей)
+   N:1 - SPORTS
+   1:N - SUBSCRIPTIONS
+
+SUBSCRIPTIONS (подписки, 5 записей)
+   N:1 - ATHLETES
+   N:1 - MEMBERSHIPS
+
+COMPETITIONS (соревнования, 4 записи)
+   N:1 - SPORTS
+   1:N - MATCHES
+
+MATCHES (матчи, 3 записи)
+   N:1 - COMPETITIONS
+   N:1 - SPORTS
+   N:1 - TEAMS              (team1_id, team2_id)
+   N:1 - ATHLETES          (athlete1_id, athlete2_id)
+   N:1 - FACILITIES
+   1:N - ATHLETE_PERFORMANCES
+
+TRAINING_SESSIONS (тренировки, 4 записи)
+   N:1 - TEAMS
+   N:1 - ATHLETES
+   N:1 - COACHES
+   N:1 - SPORTS
+   N:1 - FACILITIES
+
+ATHLETE_PERFORMANCES (результаты, 3 записи)
+   N:1 - ATHLETES
+   N:1 - MATCHES
+   N:1 - COMPETITIONS
+   N:1 - SPORTS
+
+INJURIES (травмы, 2 записи)
+   N:1 - ATHLETES
+
+PAYMENTS (платежи, 6 записей)
+   N:1 - ATHLETES
+   N:1 - TEAMS
+
+STAFF (персонал, 4 записи)
+   1:N - EVENTS
+
+EVENTS (мероприятия, 3 записи)
+   N:1 - FACILITIES
+   N:1 - STAFF
+
+2.2 Сводная таблица связей
+
+   От                  К                   Тип    Кратность
+   ---------------------------------------------------------
+   ATHLETES            TEAM_ATHLETES       FK     1:N
+   ATHLETES            SUBSCRIPTIONS       FK     1:N
+   ATHLETES            INJURIES            FK     1:N
+   ATHLETES            ATHLETE_PERFORMANCES FK    1:N
+   ATHLETES            PAYMENTS            FK     1:N
+   TEAMS               TEAM_ATHLETES       FK     1:N
+   TEAMS               MATCHES             FK     1:N
+   TEAMS               COACHES            FK     N:1
+   TEAMS               PAYMENTS            FK     1:N
+   SPORTS              TEAMS               FK     1:N
+   SPORTS              FACILITIES          FK     1:N
+   SPORTS              COMPETITIONS        FK     1:N
+   SPORTS              TRAINING_SESSIONS   FK     1:N
+   SPORTS              MEMBERSHIPS         FK     1:N
+   COACHES             TRAINING_SESSIONS   FK     1:N
+   COMPETITIONS        MATCHES             FK     1:N
+   MATCHES             ATHLETE_PERFORMANCES FK    1:N
+   FACILITIES          TRAINING_SESSIONS   FK     1:N
+   FACILITIES          MATCHES             FK     1:N
+   FACILITIES          EVENTS              FK     1:N
+   MEMBERSHIPS         SUBSCRIPTIONS       FK     1:N
+   STAFF               EVENTS              FK     1:N
+
+Визуальная диаграмма приведена в файле er_diagram_interactive.html.
+
+
+РАЗДЕЛ 3. РЕЛЯЦИОННАЯ МОДЕЛЬ (ФИЗИЧЕСКАЯ МОДЕЛЬ)
+
+3.1 Описание таблиц
+
+Таблица ATHLETES (спортсмены), 8 записей
+   Первичный ключ: athlete_id (INTEGER, AUTOINCREMENT)
+   Уникальные поля: phone, email
+   Поля:
+   - athlete_id        INTEGER, PK, AUTOINCREMENT
+   - full_name         TEXT, NOT NULL
+   - phone             TEXT, UNIQUE, NOT NULL
+   - email             TEXT, UNIQUE, NOT NULL
+   - date_of_birth     DATE, NOT NULL
+   - gender            TEXT, CHECK (М, Ж)
+   - height            DECIMAL(5,2)
+   - weight            DECIMAL(6,2)
+   - registration_date DATETIME, DEFAULT CURRENT_TIMESTAMP
+   - status            TEXT, DEFAULT 'активный',
+                       CHECK (активный, травма, отстранен, неактивный)
+   - notes             TEXT
+   Индексы: idx_athletes_phone, idx_athletes_email, idx_athletes_status
+
+Таблица SPORTS (виды спорта), 6 записей
+   Первичный ключ: sport_id (INTEGER, AUTOINCREMENT)
+   Уникальные поля: name
+   Поля:
+   - sport_id     INTEGER, PK, AUTOINCREMENT
+   - name         TEXT, UNIQUE, NOT NULL
+   - description  TEXT
+   - type         TEXT, CHECK (индивидуальный, командный, парный)
+   - is_active    BOOLEAN, DEFAULT 1
+
+Таблица FACILITIES (сооружения), 6 записей
+   Первичный ключ: facility_id (INTEGER, AUTOINCREMENT)
+   Внешний ключ: sport_id -> SPORTS
+   Поля:
+   - facility_id   INTEGER, PK, AUTOINCREMENT
+   - name          TEXT, NOT NULL
+   - type          TEXT, CHECK (зал, бассейн, поле, корт, стадион, ледовая арена)
+   - capacity      INTEGER
+   - area          DECIMAL(8,2)
+   - sport_id      INTEGER, FK -> SPORTS
+   - is_available  BOOLEAN, DEFAULT 1
+   - description   TEXT
+   Индекс: idx_facilities_sport
+
+Таблица COACHES (тренеры), 6 записей
+   Первичный ключ: coach_id (INTEGER, AUTOINCREMENT)
+   Уникальные поля: email
+   Поля:
+   - coach_id            INTEGER, PK, AUTOINCREMENT
+   - full_name           TEXT, NOT NULL
+   - phone               TEXT
+   - email               TEXT, UNIQUE
+   - specialization      TEXT
+   - qualification_level TEXT, CHECK (любитель, кандидат в мастера,
+                         мастер спорта, international)
+   - hire_date           DATE, NOT NULL
+   - fire_date           DATE
+   - salary              DECIMAL(10,2)
+   - status              TEXT, DEFAULT 'активный',
+                         CHECK (активный, неактивный)
+   - notes               TEXT
+
+Таблица TEAMS (команды), 5 записей
+   Первичный ключ: team_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: sport_id -> SPORTS, coach_id -> COACHES
+   Уникальные поля: name
+   Поля:
+   - team_id      INTEGER, PK, AUTOINCREMENT
+   - name         TEXT, UNIQUE, NOT NULL
+   - sport_id     INTEGER, FK -> SPORTS, NOT NULL
+   - coach_id     INTEGER, FK -> COACHES
+   - founded_date DATE
+   - status       TEXT, DEFAULT 'активная',
+                  CHECK (активная, расформирована, в процессе)
+   Индекс: idx_teams_sport
+
+Таблица TEAM_ATHLETES (составы команд), 7 записей
+   Первичный ключ: team_athlete_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: team_id -> TEAMS, athlete_id -> ATHLETES
+   Уникальные поля: (team_id, athlete_id)
+   Поля:
+   - team_athlete_id INTEGER, PK, AUTOINCREMENT
+   - team_id         INTEGER, FK -> TEAMS, NOT NULL
+   - athlete_id      INTEGER, FK -> ATHLETES, NOT NULL
+   - position        TEXT
+   - jersey_number   INTEGER
+   - join_date       DATE, NOT NULL
+   - leave_date      DATE
+   - status          TEXT, DEFAULT 'активный'
+   Индексы: idx_team_athletes_team, idx_team_athletes_athlete
+
+Таблица MEMBERSHIPS (абонементы), 5 записей
+   Первичный ключ: membership_id (INTEGER, AUTOINCREMENT)
+   Внешний ключ: sport_id -> SPORTS
+   Уникальные поля: name
+   Поля:
+   - membership_id      INTEGER, PK, AUTOINCREMENT
+   - name               TEXT, UNIQUE, NOT NULL
+   - description        TEXT
+   - duration_days      INTEGER, NOT NULL
+   - price              DECIMAL(10,2), NOT NULL
+   - sport_id           INTEGER, FK -> SPORTS
+   - max_visits_per_week INTEGER
+
+Таблица SUBSCRIPTIONS (подписки), 5 записей
+   Первичный ключ: subscription_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: athlete_id -> ATHLETES, membership_id -> MEMBERSHIPS
+   Поля:
+   - subscription_id INTEGER, PK, AUTOINCREMENT
+   - athlete_id      INTEGER, FK -> ATHLETES, NOT NULL
+   - membership_id   INTEGER, FK -> MEMBERSHIPS, NOT NULL
+   - start_date      DATE, NOT NULL
+   - end_date        DATE, NOT NULL
+   - payment_date    DATETIME, NOT NULL
+   - paid_amount     DECIMAL(10,2), NOT NULL
+   - status          TEXT, DEFAULT 'активная',
+                     CHECK (активная, истекла, заморожена, отменена)
+   - notes           TEXT
+   Индексы: idx_subscriptions_athlete, idx_subscriptions_end_date
+
+Таблица COMPETITIONS (соревнования), 4 записи
+   Первичный ключ: competition_id (INTEGER, AUTOINCREMENT)
+   Внешний ключ: sport_id -> SPORTS
+   Поля:
+   - competition_id INTEGER, PK, AUTOINCREMENT
+   - name           TEXT, NOT NULL
+   - sport_id       INTEGER, FK -> SPORTS, NOT NULL
+   - level          TEXT, CHECK (любительский, районный, городской,
+                    региональный, всероссийский, международный)
+   - start_date     DATE, NOT NULL
+   - end_date       DATE, NOT NULL
+   - location       TEXT
+   - format         TEXT, CHECK (круговая система, выбывание, смешанная)
+   - status         TEXT, DEFAULT 'планирование',
+                    CHECK (планирование, регистрация, в процессе,
+                    завершено, отмена)
+   Индексы: idx_competitions_sport, idx_competitions_date
+
+Таблица MATCHES (матчи), 3 записи
+   Первичный ключ: match_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: competition_id -> COMPETITIONS, sport_id -> SPORTS,
+   team1_id -> TEAMS, team2_id -> TEAMS, athlete1_id -> ATHLETES,
+   athlete2_id -> ATHLETES, facility_id -> FACILITIES
+   Поля:
+   - match_id      INTEGER, PK, AUTOINCREMENT
+   - competition_id INTEGER, FK -> COMPETITIONS, NOT NULL
+   - sport_id      INTEGER, FK -> SPORTS, NOT NULL
+   - team1_id      INTEGER, FK -> TEAMS
+   - team2_id      INTEGER, FK -> TEAMS
+   - athlete1_id   INTEGER, FK -> ATHLETES
+   - athlete2_id   INTEGER, FK -> ATHLETES
+   - match_date    DATETIME, NOT NULL
+   - facility_id   INTEGER, FK -> FACILITIES
+   - team1_score   INTEGER
+   - team2_score   INTEGER
+   - result        TEXT, CHECK (победа 1, победа 2, ничья, отмена)
+   - status        TEXT, DEFAULT 'запланирован',
+                   CHECK (запланирован, в процессе, завершен, отмена)
+   - notes         TEXT
+   Индексы: idx_matches_competition, idx_matches_date,
+            idx_matches_team1, idx_matches_team2
+
+Таблица TRAINING_SESSIONS (тренировки), 4 записи
+   Первичный ключ: session_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: team_id -> TEAMS, athlete_id -> ATHLETES,
+   coach_id -> COACHES, sport_id -> SPORTS, facility_id -> FACILITIES
+   Поля:
+   - session_id       INTEGER, PK, AUTOINCREMENT
+   - team_id          INTEGER, FK -> TEAMS
+   - athlete_id       INTEGER, FK -> ATHLETES
+   - coach_id         INTEGER, FK -> COACHES, NOT NULL
+   - sport_id         INTEGER, FK -> SPORTS, NOT NULL
+   - session_date     DATE, NOT NULL
+   - start_time       TIME, NOT NULL
+   - end_time         TIME, NOT NULL
+   - facility_id      INTEGER, FK -> FACILITIES
+   - duration_minutes INTEGER
+   - type             TEXT, CHECK (техника, физическая подготовка,
+                      тактика, общая)
+   - attendance_count INTEGER
+   - notes            TEXT
+   Индексы: idx_training_sessions_coach, idx_training_sessions_date,
+            idx_training_sessions_team, idx_training_sessions_facility
+
+Таблица ATHLETE_PERFORMANCES (результаты спортсменов), 3 записи
+   Первичный ключ: performance_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: athlete_id -> ATHLETES, match_id -> MATCHES,
+   competition_id -> COMPETITIONS, sport_id -> SPORTS
+   Поля:
+   - performance_id   INTEGER, PK, AUTOINCREMENT
+   - athlete_id       INTEGER, FK -> ATHLETES, NOT NULL
+   - match_id         INTEGER, FK -> MATCHES
+   - competition_id   INTEGER, FK -> COMPETITIONS
+   - sport_id         INTEGER, FK -> SPORTS, NOT NULL
+   - performance_date DATE, NOT NULL
+   - score            DECIMAL(8,2)
+   - time             TIME
+   - distance         DECIMAL(8,2)
+   - result           TEXT
+   - achievement_level TEXT, CHECK (отличное, хорошее, среднее, плохое)
+   - notes            TEXT
+   Индексы: idx_athlete_performances_athlete, idx_athlete_performances_date
+
+Таблица INJURIES (травмы), 2 записи
+   Первичный ключ: injury_id (INTEGER, AUTOINCREMENT)
+   Внешний ключ: athlete_id -> ATHLETES
+   Поля:
+   - injury_id     INTEGER, PK, AUTOINCREMENT
+   - athlete_id    INTEGER, FK -> ATHLETES, NOT NULL
+   - injury_date   DATE, NOT NULL
+   - type          TEXT, NOT NULL
+   - severity      TEXT, CHECK (легкая, средняя, тяжелая)
+   - description   TEXT
+   - recovery_date DATE
+   Индексы: idx_injuries_athlete, idx_injuries_date
+
+Таблица PAYMENTS (платежи), 6 записей
+   Первичный ключ: payment_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: athlete_id -> ATHLETES, team_id -> TEAMS
+   Уникальные поля: invoice_number
+   Поля:
+   - payment_id     INTEGER, PK, AUTOINCREMENT
+   - athlete_id     INTEGER, FK -> ATHLETES
+   - team_id        INTEGER, FK -> TEAMS
+   - payment_date   DATETIME, DEFAULT CURRENT_TIMESTAMP
+   - amount         DECIMAL(10,2), NOT NULL
+   - payment_type   TEXT, CHECK (подписка, членский взнос, услуга, штраф)
+   - payment_method TEXT, CHECK (наличные, карта, переводом)
+   - status         TEXT, DEFAULT 'успешно',
+                    CHECK (успешно, ожидание, отклонено)
+   - invoice_number TEXT, UNIQUE
+   - notes          TEXT
+   Индексы: idx_payments_athlete, idx_payments_date
+
+Таблица STAFF (персонал), 4 записи
+   Первичный ключ: staff_id (INTEGER, AUTOINCREMENT)
+   Уникальные поля: email
+   Поля:
+   - staff_id   INTEGER, PK, AUTOINCREMENT
+   - full_name  TEXT, NOT NULL
+   - phone      TEXT
+   - email      TEXT, UNIQUE
+   - position   TEXT, CHECK (администратор, администратор зала, врач,
+                массажист, техник)
+   - hire_date  DATE, NOT NULL
+   - fire_date  DATE
+   - salary     DECIMAL(10,2)
+   - status     TEXT, DEFAULT 'активный',
+                CHECK (активный, неактивный)
+   - notes      TEXT
+
+Таблица EVENTS (мероприятия), 3 записи
+   Первичный ключ: event_id (INTEGER, AUTOINCREMENT)
+   Внешние ключи: facility_id -> FACILITIES, organizer_id -> STAFF
+   Поля:
+   - event_id            INTEGER, PK, AUTOINCREMENT
+   - name                TEXT, NOT NULL
+   - event_type          TEXT, CHECK (соревнование, открытый урок,
+                         мастер-класс, праздник спорта)
+   - event_date          DATETIME, NOT NULL
+   - facility_id         INTEGER, FK -> FACILITIES
+   - organizer_id        INTEGER, FK -> STAFF
+   - expected_participants INTEGER
+   - status              TEXT, DEFAULT 'планирование',
+                         CHECK (планирование, регистрация, проведение,
+                         завершено)
+
+3.2 Представления (VIEWS)
+
+v_active_subscriptions
+   Назначение: список активных подписок спортсменов с количеством
+   оставшихся дней. Используется для напоминаний об истечении подписки.
+
+v_weekly_training_schedule
+   Назначение: расписание предстоящих тренировок с указанием тренера,
+   вида спорта, объекта и участника. Используется для вывода расписания.
+
+v_competition_results
+   Назначение: результаты завершенных и идущих матчей. Используется
+   для публикации результатов соревнований.
+
+v_revenue_summary
+   Назначение: сводка успешных платежей по дням и типам. Используется
+   для финансовых отчетов.
+
+
+РАЗДЕЛ 4. БАЗА ДАННЫХ SQLITE
+
+4.1 Характеристики файла
+
+   Имя файла:     sports_complex.db
+   Тип СУБД:      SQLite 3
+   Кодировка:     UTF-8
+   Версия схемы:  1.0
+
+4.2 Статистика данных
+
+   Таблица                   Записей
+   ------------------------------------
+   athletes                      8
+   sports                        6
+   facilities                    6
+   coaches                       6
+   teams                         5
+   team_athletes                 7
+   memberships                   5
+   subscriptions                 5
+   competitions                  4
+   matches                       3
+   training_sessions             4
+   athlete_performances          3
+   injuries                      2
+   payments                      6
+   staff                         4
+   events                        3
+   ------------------------------------
+   ИТОГО                        77
+
+
+РАЗДЕЛ 5. НОРМАЛИЗАЦИЯ
+
+Схема базы данных приведена к нормальной форме Бойса-Кодда (НФБК):
+- каждая таблица описывает одну сущность;
+- все неключевые атрибуты зависят от всего первичного ключа
+  (отсутствуют частичные зависимости);
+- неключевые атрибуты не зависят от других неключевых атрибутов
+  (отсутствуют транзитивные зависимости);
+- каждый детерминант является потенциальным ключом.
+
+
+ЗАКЛЮЧЕНИЕ
+
+Информационная система "Спорткомплекс" обеспечивает:
+- комплексное управление спортсменами и командами;
+- организацию и контроль тренировок и соревнований;
+- управление финансами и подписками;
+- ведение статистики и результатов;
+- формирование отчетов для анализа деятельности.
